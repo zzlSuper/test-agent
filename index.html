@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>实时天气</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>实时天气查询</h1>
+
+        <div class="search-box">
+            <input type="text" id="city-input" placeholder="请输入城市名称" autocomplete="off">
+            <div class="date-selector">
+                <input type="date" id="start-date" placeholder="开始日期">
+                <span>到</span>
+                <input type="date" id="end-date" placeholder="结束日期">
+            </div>
+            <button id="search-btn">查询</button>
+        </div>
+        <div class="weather-info" id="weather-info">
+            <div class="loading" id="loading" style="display: none;">
+                <p>正在获取天气数据...</p>
+            </div>
+            <div class="weather-result" id="weather-result" style="display: none;">
+                <h2 id="city-name"></h2>
+                <div class="weather-main">
+                    <img id="weather-icon" src="" alt="天气图标">
+                    <div class="temperature">
+                        <span id="temp"></span>°C
+                    </div>
+                </div>
+                <div class="weather-details">
+                    <p><strong>天气状况:</strong> <span id="description"></span></p>
+                    <p><strong>湿度:</strong> <span id="humidity"></span>%</p>
+                    <p><strong>风速:</strong> <span id="wind-speed"></span> m/s</p>
+                    <p><strong>气压:</strong> <span id="pressure"></span> hPa</p>
+                </div>
+                <div class="update-time">
+                    <p>数据更新时间: <span id="update-time"></span></p>
+                </div>
+            </div>
+            <div class="error" id="error" style="display: none;">
+                <p id="error-message">城市未找到，请检查输入</p>
+            </div>
+            <!-- 分页控件 -->
+            <div class="pagination" id="pagination" style="display: none;">
+                <button class="pagination-btn" id="prev-btn">上一页</button>
+                <div class="page-numbers" id="page-numbers"></div>
+                <button class="pagination-btn" id="next-btn">下一页</button>
+                <div class="page-info" id="page-info"></div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
